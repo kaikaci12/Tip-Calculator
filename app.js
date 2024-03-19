@@ -15,7 +15,32 @@ percentBox.forEach((item, idx) => {
         arrItem.classList.remove("active-percent");
       }
     });
-    console.log(activeIdx);
   });
 });
 const custom = document.querySelector(".custom");
+custom.addEventListener("click", () => {
+  for (let i = 0; i < percentBox.length; i++) {
+    if (percentBox[i].classList.contains("active-percent")) {
+      percentBox[i].classList.remove("active-percent");
+    }
+  }
+});
+
+const numOfPeople = document.querySelector(".num-people");
+const cantZero = document.querySelector(".numcheck");
+const peopleDiv = document.querySelector(".numOfPeople");
+numOfPeople.addEventListener("change", () => {
+  if (
+    numOfPeople.value === "0" ||
+    numOfPeople.value === "" ||
+    isNaN(numOfPeople.value)
+  ) {
+    cantZero.classList.add("cant-zero");
+    cantZero.style.display = "block";
+    peopleDiv.classList.add("people-border");
+  } else {
+    cantZero.classList.remove("cant-zero");
+    cantZero.style.display = "none";
+    peopleDiv.classList.remove("people-border");
+  }
+});

@@ -130,6 +130,16 @@ main {
   font-size: 16px;
   font-weight: 700;
 }
+.people-check {
+  display: flex;
+  justify-content: space-between;
+}
+.people .cant-zero {
+  color: #e17457;
+}
+.people-border {
+  border: 2px solid #e17052;
+}
 
 .numOfPeople input {
   text-align: end;
