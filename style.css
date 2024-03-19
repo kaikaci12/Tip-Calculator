@@ -55,7 +55,7 @@ main {
 }
 .bill-bar input {
   text-align: end;
-  width: 89px;
+  width: 100%;
   height: 36px;
   border: none;
   background: transparent;
@@ -90,6 +90,10 @@ main {
 }
 .custom {
   background: #f3f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 .custom input {
   text-align: end;
@@ -126,9 +130,10 @@ main {
   font-size: 16px;
   font-weight: 700;
 }
+
 .numOfPeople input {
   text-align: end;
-  width: 89px;
+  width: 100%;
   height: 36px;
   border: none;
   background: transparent;
@@ -149,6 +154,7 @@ main {
   padding: 37px 22px 24px 24px;
   margin-top: 32px;
 }
+
 .about-tips {
   display: flex;
   flex-direction: column;
@@ -196,6 +202,13 @@ main {
   font-weight: 700;
   opacity: 0.35;
 }
+.active-percent {
+  background: #9fe8df;
+}
+.active-percent span {
+  color: #00474b;
+}
+
 @media only screen and (min-width: 1440px) {
   body {
     display: flex;
@@ -239,8 +252,37 @@ main {
     font-weight: 700;
     letter-spacing: -1px;
   }
+
+  .enter-bill:hover {
+    border: 2px solid #26c2ae;
+  }
+  .percent-box:hover {
+    cursor: pointer;
+    background: #9fe8df !important;
+  }
+  .percent-box {
+    transition: 0.3s ease;
+  }
+  .percent-box:hover span {
+    color: #00474b;
+  }
+  .percent-box span {
+    transition: 0.3s;
+  }
+
   .custom:hover {
+    transition: 0s;
     border: 2px solid #26c2ae;
     cursor: pointer;
+    background: #f3f9fa;
+  }
+  .reset:hover {
+    cursor: pointer;
+    background: #9fe8df;
+  }
+  .reset span:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    color: #00474b;
   }
 }
