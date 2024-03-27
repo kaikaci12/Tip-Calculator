@@ -11,7 +11,7 @@ const totalTipAmount = document.querySelector(".total-tip-amount");
 const totalPrice = document.querySelector(".final-total");
 const reset = document.querySelector(".reset");
 let tipAmount;
-let percentToDivide = 0; // Initialize percentToDivide
+let percentToDivide = 0;
 let activeIdx;
 let array = [];
 
@@ -106,12 +106,8 @@ customInput.addEventListener("change", () => {
     ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
       percentToDivide) /
     100;
-
-  if (isNaN(totalTipAmount) || isNaN(finalTipAmount)) {
-    totalTipAmount.innerHTML = "$0.00";
-  } else {
-    totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
-  }
+  if (isNaN(finalTipAmount)) return;
+  totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
 });
 numOfPeople.addEventListener("change", () => {
   if (
@@ -158,4 +154,8 @@ reset.addEventListener("click", () => {
   cantZero.classList.add("cant-zero");
   cantZero.style.display = "block";
   peopleDiv.classList.add("people-border");
+  percentToDivide = 0;
+  percentBox.forEach((item) => {
+    item.classList.remove("active-percent");
+  });
 });
