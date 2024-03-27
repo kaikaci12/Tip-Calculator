@@ -9,11 +9,12 @@ const custom = document.querySelector(".custom");
 const customInput = document.querySelector(".custom-input");
 const totalTipAmount = document.querySelector(".total-tip-amount");
 const totalPrice = document.querySelector(".final-total");
-
+const reset = document.querySelector(".reset");
 let tipAmount;
-let percentToDivide;
+let percentToDivide = 0; // Initialize percentToDivide
 let activeIdx;
 let array = [];
+
 percentBox.forEach((item, idx) => {
   array.push(item);
   item.addEventListener("click", () => {
@@ -21,27 +22,30 @@ percentBox.forEach((item, idx) => {
     array.forEach((arrItem, index) => {
       if (activeIdx === index) {
         arrItem.classList.add("active-percent");
+        customInput.value = "";
         spanPercent.forEach((item, index) => {
           if (index == activeIdx) {
+            percentToDivide = parseInt(item.innerHTML.split("%")[0]);
             const finalUserTipAmount =
               ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
-                parseInt(percentToDivide)) /
+                percentToDivide) /
               100;
 
             const finalTotalPrice =
               parseInt(billInput.value) / parseInt(numOfPeople.value) +
-              parseInt(finalUserTipAmount);
-            totalPrice.innerHTML = finalTotalPrice;
+              finalUserTipAmount;
+            totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
             if (!numOfPeople.value || parseInt(numOfPeople.value) === 0) {
               tipAmount = parseInt(billInput.value / 1);
+              totalTipAmount.innerHTML = "$0.00";
             } else {
               tipAmount = parseInt(billInput.value / numOfPeople.value);
             }
-            percentToDivide = parseInt(item.innerHTML.split("%")[0]);
-            tipAmount = parseInt(tipAmount * percentToDivide) / 100;
+            tipAmount = (tipAmount * percentToDivide) / 100;
 
             if (!numOfPeople.value || parseInt(numOfPeople.value) === 0) {
               totalTipAmount.innerHTML = "$0.00";
+              totalPrice.innerHTML = "$0.00";
             } else {
               totalTipAmount.innerHTML = "$" + tipAmount.toFixed(2);
             }
@@ -64,9 +68,25 @@ custom.addEventListener("click", () => {
 billInput.addEventListener("change", () => {
   const finalTipAmount =
     ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
-      parseInt(percentToDivide)) /
+      percentToDivide) /
     100;
   totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+  if (billInput.value === "" || billInput.value === "0")
+    totalTipAmount.innerHTML = "$0.00";
+  if (
+    isNaN(totalTipAmount) ||
+    isNaN(finalTipAmount) ||
+    numOfPeople.value === "0" ||
+    numOfPeople.value === "" ||
+    isNaN(numOfPeople.value) ||
+    billInput.value === "0" ||
+    billInput.value === "" ||
+    customInput.value === "0" ||
+    customInput.value === ""
+  ) {
+    totalTipAmount.innerHTML = "$0.00";
+    totalPrice.innerHTML = "$0.00";
+  }
 });
 
 customInput.addEventListener("change", () => {
@@ -79,15 +99,19 @@ customInput.addEventListener("change", () => {
       return parseInt(customInput.value);
     }
   };
-  const returnedPercent = finalPercentToDivide();
-  customInput.value = returnedPercent;
-  console.log(returnedPercent);
+  percentToDivide = finalPercentToDivide();
+  customInput.value = percentToDivide;
+  console.log(percentToDivide);
   const finalTipAmount =
     ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
-      parseInt(returnedPercent)) /
+      percentToDivide) /
     100;
 
-  totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+  if (isNaN(totalTipAmount) || isNaN(finalTipAmount)) {
+    totalTipAmount.innerHTML = "$0.00";
+  } else {
+    totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+  }
 });
 numOfPeople.addEventListener("change", () => {
   if (
@@ -98,6 +122,7 @@ numOfPeople.addEventListener("change", () => {
     cantZero.classList.add("cant-zero");
     cantZero.style.display = "block";
     peopleDiv.classList.add("people-border");
+    totalTipAmount.innerHTML = "$0.00";
   } else {
     cantZero.classList.remove("cant-zero");
     cantZero.style.display = "none";
@@ -108,15 +133,29 @@ numOfPeople.addEventListener("change", () => {
 numOfPeople.addEventListener("change", () => {
   const finalUserTipAmount =
     ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
-      parseInt(percentToDivide)) /
+      percentToDivide) /
     100;
   const finalTipAmount =
     ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
-      parseInt(percentToDivide)) /
+      percentToDivide) /
     100;
   totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
   const finalTotalPrice =
     parseInt(billInput.value) / parseInt(numOfPeople.value) +
-    parseInt(finalUserTipAmount);
-  totalPrice.innerHTML = finalTotalPrice;
+    finalUserTipAmount;
+  totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
+  if (isNaN(finalTotalPrice) || isNaN(finalTotalPrice)) {
+    totalTipAmount.innerHTML = "$0.00";
+    totalPrice.innerHTML = "$0.00";
+  }
+});
+reset.addEventListener("click", () => {
+  totalTipAmount.innerHTML = "$0.00";
+  totalPrice.innerHTML = "$0.00";
+  customInput.value = "";
+  billInput.value = "";
+  numOfPeople.value = "";
+  cantZero.classList.add("cant-zero");
+  cantZero.style.display = "block";
+  peopleDiv.classList.add("people-border");
 });
