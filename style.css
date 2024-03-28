@@ -106,3 +106,15 @@ main {
   font-size: 24px;
   font-weight: 700;
 }
+
+.percentage {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 16px;
+}
