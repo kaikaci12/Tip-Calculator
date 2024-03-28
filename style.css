@@ -231,4 +231,10 @@ main {
     width: 920px;
     border-radius: 25px;
   }
+  .main-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 48px;
+  }
 }
