@@ -219,3 +219,16 @@ main {
 .active-percent span {
   color: #00474b;
 }
+
+@media only screen and (min-width: 1440px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    gap: 87px;
+  }
+  main {
+    margin-top: 0;
+    width: 920px;
+    border-radius: 25px;
+  }
+}
