@@ -156,3 +156,41 @@ main {
   opacity: 0.35;
   font-weight: 700;
 }
+.tip-info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background: #00474b;
+  padding: 37px 22px 24px 24px;
+  margin-top: 32px;
+}
+
+.about-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tip-amount {
+  display: flex;
+  flex-direction: column;
+}
+.div-amount {
+  display: flex;
+  justify-content: space-between;
+}
+.div-amount .amount {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+.div-amount span {
+  color: #7f9d9f;
+  font-size: 13px;
+  font-weight: 700;
+}
+.price span {
+  color: #26c2ae;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.667px;
+}
