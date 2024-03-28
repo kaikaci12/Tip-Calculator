@@ -237,4 +237,17 @@ main {
     justify-content: space-between;
     gap: 48px;
   }
+  .tip-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+  .div-amount {
+    align-items: center;
+  }
+  .middle-section {
+    width: 100%;
+  }
 }
