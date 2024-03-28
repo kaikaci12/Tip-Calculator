@@ -11,6 +11,14 @@ const totalTipAmount = document.querySelector(".total-tip-amount");
 const totalPrice = document.querySelector(".final-total");
 const reset = document.querySelector(".reset");
 let tipAmount;
+
+let activeIdx;
 let array = [];
 
-percentBox.forEach((item, idx) => {});
+percentBox.forEach((item, idx) => {
+  array.push(item);
+  item.addEventListener("click", () => {
+    activeIdx = idx;
+    array.forEach((arrItem, index) => {});
+  });
+});
