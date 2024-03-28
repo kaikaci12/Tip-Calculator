@@ -250,4 +250,17 @@ main {
   .middle-section {
     width: 100%;
   }
+
+  .boxes {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .people {
+    margin-top: 40px;
+  }
+  .price span {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
 }
