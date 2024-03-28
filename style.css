@@ -263,4 +263,37 @@ main {
     font-weight: 700;
     letter-spacing: -1px;
   }
+
+  .enter-bill:hover {
+    border: 2px solid #26c2ae;
+  }
+  .percent-box:hover {
+    cursor: pointer;
+    background: #9fe8df !important;
+  }
+  .percent-box {
+    transition: 0.3s ease;
+  }
+  .percent-box:hover span {
+    color: #00474b;
+  }
+  .percent-box span {
+    transition: 0.3s;
+  }
+
+  .custom:hover {
+    transition: 0s;
+    border: 2px solid #26c2ae;
+    cursor: pointer;
+    background: #f3f9fa;
+  }
+  .reset:hover {
+    cursor: pointer;
+    background: #9fe8df;
+  }
+  .reset span:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    color: #00474b;
+  }
 }
