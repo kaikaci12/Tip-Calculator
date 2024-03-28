@@ -10,3 +10,7 @@ const customInput = document.querySelector(".custom-input");
 const totalTipAmount = document.querySelector(".total-tip-amount");
 const totalPrice = document.querySelector(".final-total");
 const reset = document.querySelector(".reset");
+let tipAmount;
+let array = [];
+
+percentBox.forEach((item, idx) => {});
