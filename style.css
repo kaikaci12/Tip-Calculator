@@ -118,3 +118,25 @@ main {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 16px;
 }
+
+.people {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 32px;
+}
+.people span {
+  color: #5e7a7d;
+  font-size: 16px;
+  font-weight: 700;
+}
+.people-check {
+  display: flex;
+  justify-content: space-between;
+}
+.people .cant-zero {
+  color: #e17457;
+}
+.people-border {
+  border: 2px solid #e17052;
+}
