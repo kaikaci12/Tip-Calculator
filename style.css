@@ -68,3 +68,14 @@ main {
   opacity: 0.35;
   font-weight: 700;
 }
+.tip {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+.select-tip {
+  color: #5e7a7d;
+  font-size: 16px;
+  font-weight: 700;
+}
