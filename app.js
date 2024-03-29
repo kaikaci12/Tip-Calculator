@@ -11,7 +11,7 @@ const totalTipAmount = document.querySelector(".total-tip-amount");
 const totalPrice = document.querySelector(".final-total");
 const reset = document.querySelector(".reset");
 let tipAmount;
-
+let percentToDivide = 0;
 let activeIdx;
 let array = [];
 
@@ -19,6 +19,16 @@ percentBox.forEach((item, idx) => {
   array.push(item);
   item.addEventListener("click", () => {
     activeIdx = idx;
-    array.forEach((arrItem, index) => {});
+    array.forEach((arrItem, index) => {
+      if (activeIdx === index) {
+        arrItem.classList.add("active-percent");
+        customInput.value = "";
+        spanPercent.forEach((item, index) => {
+          if (index == activeIdx) {
+            percentToDivide = parseInt(item.innerHTML.split("%")[0]);
+          }
+        });
+      }
+    });
   });
 });
