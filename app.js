@@ -101,11 +101,49 @@ customInput.addEventListener("change", () => {
   };
   percentToDivide = finalPercentToDivide();
   customInput.value = percentToDivide;
-
+  console.log(percentToDivide);
   const finalTipAmount =
     ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
       percentToDivide) /
     100;
   if (isNaN(finalTipAmount)) return;
   totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+});
+numOfPeople.addEventListener("change", () => {
+  if (
+    numOfPeople.value === "0" ||
+    numOfPeople.value === "" ||
+    isNaN(numOfPeople.value)
+  ) {
+    cantZero.classList.add("cant-zero");
+    cantZero.style.display = "block";
+    peopleDiv.classList.add("people-border");
+    totalTipAmount.innerHTML = "$0.00";
+  } else {
+    cantZero.classList.remove("cant-zero");
+    cantZero.style.display = "none";
+    peopleDiv.classList.remove("people-border");
+  }
+});
+
+numOfPeople.addEventListener("change", () => {
+  const finalUserTipAmount =
+    ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
+      percentToDivide) /
+    100;
+
+  const finalTipAmount =
+    ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
+      percentToDivide) /
+    100;
+  100;
+  totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+  const finalTotalPrice =
+    parseInt(billInput.value) / parseInt(numOfPeople.value) +
+    finalUserTipAmount;
+  totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
+  if (isNaN(finalTotalPrice) || isNaN(finalTotalPrice)) {
+    totalTipAmount.innerHTML = "$0.00";
+    totalPrice.innerHTML = "$0.00";
+  }
 });
