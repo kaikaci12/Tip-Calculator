@@ -57,3 +57,10 @@ percentBox.forEach((item, idx) => {
     });
   });
 });
+custom.addEventListener("click", () => {
+  for (let i = 0; i < percentBox.length; i++) {
+    if (percentBox[i].classList.contains("active-percent")) {
+      percentBox[i].classList.remove("active-percent");
+    }
+  }
+});
