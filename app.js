@@ -64,3 +64,27 @@ custom.addEventListener("click", () => {
     }
   }
 });
+
+billInput.addEventListener("change", () => {
+  const finalTipAmount =
+    ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
+      percentToDivide) /
+    100;
+  totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+  if (billInput.value === "" || billInput.value === "0")
+    totalTipAmount.innerHTML = "$0.00";
+  if (
+    isNaN(totalTipAmount) ||
+    isNaN(finalTipAmount) ||
+    numOfPeople.value === "0" ||
+    numOfPeople.value === "" ||
+    isNaN(numOfPeople.value) ||
+    billInput.value === "0" ||
+    billInput.value === "" ||
+    customInput.value === "0" ||
+    customInput.value === ""
+  ) {
+    totalTipAmount.innerHTML = "$0.00";
+    totalPrice.innerHTML = "$0.00";
+  }
+});
