@@ -35,6 +35,20 @@ percentBox.forEach((item, idx) => {
               parseInt(billInput.value) / parseInt(numOfPeople.value) +
               finalUserTipAmount;
             totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
+            if (!numOfPeople.value || parseInt(numOfPeople.value) === 0) {
+              tipAmount = parseInt(billInput.value / 1);
+              totalTipAmount.innerHTML = "$0.00";
+            } else {
+              tipAmount = parseInt(billInput.value / numOfPeople.value);
+            }
+            tipAmount = (tipAmount * percentToDivide) / 100;
+
+            if (!numOfPeople.value || parseInt(numOfPeople.value) === 0) {
+              totalTipAmount.innerHTML = "$0.00";
+              totalPrice.innerHTML = "$0.00";
+            } else {
+              totalTipAmount.innerHTML = "$" + tipAmount.toFixed(2);
+            }
           }
         });
       } else {
