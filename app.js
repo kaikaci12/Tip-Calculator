@@ -147,3 +147,17 @@ numOfPeople.addEventListener("change", () => {
     totalPrice.innerHTML = "$0.00";
   }
 });
+reset.addEventListener("click", () => {
+  totalTipAmount.innerHTML = "$0.00";
+  totalPrice.innerHTML = "$0.00";
+  customInput.value = "";
+  billInput.value = "";
+  numOfPeople.value = "";
+  cantZero.classList.add("cant-zero");
+  cantZero.style.display = "block";
+  peopleDiv.classList.add("people-border");
+  percentToDivide = 0;
+  percentBox.forEach((item) => {
+    item.classList.remove("active-percent");
+  });
+});
