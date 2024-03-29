@@ -101,4 +101,11 @@ customInput.addEventListener("change", () => {
   };
   percentToDivide = finalPercentToDivide();
   customInput.value = percentToDivide;
+
+  const finalTipAmount =
+    ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
+      percentToDivide) /
+    100;
+  if (isNaN(finalTipAmount)) return;
+  totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
 });
