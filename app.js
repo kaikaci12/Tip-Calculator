@@ -99,4 +99,6 @@ customInput.addEventListener("change", () => {
       return parseInt(customInput.value);
     }
   };
+  percentToDivide = finalPercentToDivide();
+  customInput.value = percentToDivide;
 });
