@@ -37,6 +37,8 @@ percentBox.forEach((item, idx) => {
             totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
           }
         });
+      } else {
+        arrItem.classList.remove("active-percent");
       }
     });
   });
