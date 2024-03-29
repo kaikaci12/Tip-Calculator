@@ -108,6 +108,9 @@ customInput.addEventListener("change", () => {
     100;
   if (isNaN(finalTipAmount)) return;
   totalTipAmount.innerHTML = "$" + finalTipAmount.toFixed(2);
+  const finalTotalPrice =
+    parseInt(billInput.value) / parseInt(numOfPeople.value) + finalTipAmount;
+  totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
 });
 numOfPeople.addEventListener("change", () => {
   if (
