@@ -88,3 +88,15 @@ billInput.addEventListener("change", () => {
     totalPrice.innerHTML = "$0.00";
   }
 });
+
+customInput.addEventListener("change", () => {
+  const finalPercentToDivide = () => {
+    if (parseInt(customInput.value) < 1) {
+      return 1;
+    } else if (parseInt(customInput.value) > 100) {
+      return 100;
+    } else {
+      return parseInt(customInput.value);
+    }
+  };
+});
