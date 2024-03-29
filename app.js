@@ -26,6 +26,15 @@ percentBox.forEach((item, idx) => {
         spanPercent.forEach((item, index) => {
           if (index == activeIdx) {
             percentToDivide = parseInt(item.innerHTML.split("%")[0]);
+            const finalUserTipAmount =
+              ((parseInt(billInput.value) / parseInt(numOfPeople.value)) *
+                percentToDivide) /
+              100;
+
+            const finalTotalPrice =
+              parseInt(billInput.value) / parseInt(numOfPeople.value) +
+              finalUserTipAmount;
+            totalPrice.innerHTML = "$" + finalTotalPrice.toFixed(2);
           }
         });
       }
